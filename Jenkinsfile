@@ -3,14 +3,14 @@ pipeline {
     label 'Linux'
         }
     stages {
-      stage ('Compilation') {
+      stage ('Packaging') {
         steps {
-             sh 'mvn package'
+             sh 'cd /home/jenkins/test_maven && mvn package -DskipTests'
              }
       }
      stage ('Execution') {
        steps {
-             sh 'mvn test'
+             sh 'cd /home/jenkins/test_maven &&  mvn test'
           }
      }
     stage ('Script') {
